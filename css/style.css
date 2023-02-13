@@ -570,6 +570,10 @@ mark,
   height: 323px !important;
 }
 
+.img-produto{
+  height: 390px;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
