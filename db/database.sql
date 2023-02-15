@@ -68,3 +68,15 @@ CREATE TABLE tbl_pedido_produto (
 SELECT c.id, c.id_produto, c.quantidade, p.preco * c.quantidade AS subtotal, c.id_usuario, c.data
 FROM carrinho c
 JOIN produtos p ON c.id_produto = p.id
+
+/* Tabela para carrinho de compras */
+CREATE TABLE tbl_carrinho (
+  id INT NOT NULL AUTO_INCREMENT,
+  usuario_id INT NOT NULL,
+  produto_id INT NOT NULL,
+  quantidade INT NOT NULL,
+  data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+  FOREIGN KEY (produto_id) REFERENCES produtos(id)
+);

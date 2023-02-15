@@ -1,3 +1,12 @@
+<?php 
+
+require '../adm/config/conexao.php';
+
+require '../adm/consultasSQL/consultaProdutos.php';
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -667,7 +676,7 @@
     </div>
     <!-- Pricing End -->
 
-    <!-- Team Start -->
+    <!-- Produtos start -->
     <div class="container-fluid py-5">
       <div class="container pt-5">
         <div class="row justify-content-center text-center">
@@ -681,110 +690,42 @@
           </div>
         </div>
         <div class="row">
+        <?php  foreach ($exibeProdutos as $produto) { ?>
           <div class="col-lg-3 col-md-6">
-            <div class="team position-relative overflow-hidden mb-5">
-              <img class="img-fluid img-produto" src="../public/assets/img/image190.png" alt="" />
-              <div class="position-relative text-center">
-                <div class="team-text bg-primary text-white">
-                  <h5 class="text-white text-uppercase">Hidratante</h5>
-                  <p class="m-0">R$ 00,00</p>
-                </div>
-                <div class="team-social bg-dark text-center">
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="far fa-heart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-info"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square" href="#"
-                    ><i class="fa fa-search"></i
-                  ></a>
+            <form action="../adm/manipulacoes/manipularCarrinho/inserirNoCarrinho.php" method="post" enctype="multipart/form-data">
+              <input type="number" name="numeroid" value="<?php echo $produto['produto_id'];?>" hidden>
+              <input type="number" name="quantidade" value="1" hidden>
+              <input type="number" name="usuario_id" value="1" hidden>
+              <div class="team position-relative overflow-hidden mb-5">
+                <img class="img-fluid img-produto" src="<?php echo $produto['imagem'];?>" alt="" />
+                <div class="position-relative text-center">
+                  <div class="team-text bg-primary text-white">
+                    <h5 class="text-white text-uppercase"><?php echo $produto['nome'];?></h5>
+                    <p class="m-0"><?php echo number_format($produto['preco'],2,',','.');?></p>
+                  </div>
+                  <div class="team-social bg-dark text-center">
+                    <button type="submit" class="btn btn-outline-primary btn-square mr-2" href="#"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></button>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"
+                      ><i class="far fa-heart"></i
+                    ></a>
+                    <a class="btn btn-outline-primary btn-square mr-2" href="#"
+                      ><i class="fa fa-info"></i
+                    ></a>
+                    <a class="btn btn-outline-primary btn-square" href="#"
+                      ><i class="fa fa-search"></i
+                    ></a>
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="team position-relative overflow-hidden mb-5">
-              <img class="img-fluid img-produto" src="../public/assets/img/image190.png" alt="" />
-              <div class="position-relative text-center">
-                <div class="team-text bg-primary text-white">
-                  <h5 class="text-white text-uppercase">Hidratante</h5>
-                  <p class="m-0">R$ 00,00</p>
-                </div>
-                <div class="team-social bg-dark text-center">
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="far fa-heart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-info"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square" href="#"
-                    ><i class="fa fa-search"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="team position-relative overflow-hidden mb-5">
-              <img class="img-fluid img-produto" src="../public/assets/img/image190.png" alt="" />
-              <div class="position-relative text-center">
-                <div class="team-text bg-primary text-white">
-                  <h5 class="text-white text-uppercase">Hidratante</h5>
-                  <p class="m-0">R$ 00,00</p>
-                </div>
-                <div class="team-social bg-dark text-center">
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="far fa-heart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-info"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square" href="#"
-                    ><i class="fa fa-search"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="team position-relative overflow-hidden mb-5">
-              <img class="img-fluid img-produto" src="../public/assets/img/image190.png" alt="" />
-              <div class="position-relative text-center">
-                <div class="team-text bg-primary text-white">
-                  <h5 class="text-white text-uppercase">Hidratante</h5>
-                  <p class="m-0">R$ 00,00</p>
-                </div>
-                <div class="team-social bg-dark text-center">
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-shopping-cart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="far fa-heart"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square mr-2" href="#"
-                    ><i class="fa fa-info"></i
-                  ></a>
-                  <a class="btn btn-outline-primary btn-square" href="#"
-                    ><i class="fa fa-search"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </div>
-    <!-- Team End -->
+    <!-- Produtos End -->
 
     <!-- Testimonial Start -->
     <div class="container-fluid py-5">
