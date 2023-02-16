@@ -59,8 +59,8 @@ CREATE TABLE tbl_pedido_produto (
   id_produto INT NOT NULL,
   quantidade INT NOT NULL,
   preco DECIMAL(10,2) NOT NULL,
-  FOREIGN KEY (id_pedido) REFERENCES tbl_pedido (id),
-  FOREIGN KEY (id_produto) REFERENCES tbl_produto (id)
+  FOREIGN KEY (id) REFERENCES tbl_pedido (id),
+  FOREIGN KEY (id) REFERENCES tbl_produtos (id)
 );
 
 
@@ -77,6 +77,6 @@ CREATE TABLE tbl_carrinho (
   quantidade INT NOT NULL,
   data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
-  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-  FOREIGN KEY (produto_id) REFERENCES produtos(id)
+  FOREIGN KEY (usuario_id) REFERENCES tbl_cliente(usuario_id),
+  FOREIGN KEY (produto_id) REFERENCES tbl_produtos(produto_id)
 );

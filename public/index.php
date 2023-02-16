@@ -692,7 +692,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
         <div class="row">
         <?php  foreach ($exibeProdutos as $produto) { ?>
           <div class="col-lg-3 col-md-6">
-            <form action="../adm/manipulacoes/manipularCarrinho/inserirNoCarrinho.php" method="post" enctype="multipart/form-data">
+            <form action="../adm/manipulacoes/manipularCarrinho/manipularCarrinho.php" method="post" enctype="multipart/form-data">
               <input type="number" name="numeroid" value="<?php echo $produto['produto_id'];?>" hidden>
               <input type="number" name="quantidade" value="1" hidden>
               <input type="number" name="usuario_id" value="1" hidden>
