@@ -30,7 +30,7 @@ if ($exibeDadosCarrinho) {
     $consultaProduto = $conn->prepare("SELECT * FROM tbl_produtos WHERE produto_id = ?");
     $consultaProduto->execute([$idProduto]);
     $exibeDadosProduto = $consultaProduto->fetchAll(PDO::FETCH_ASSOC);
-    $quantidadeEstoque = $exibeDadosProduto[0]['quantidade'];
+    $quantidadeEstoque = $exibeDadosProduto[0]['estoque'];
     
     if ($quantidadeCarrinho <= $quantidadeEstoque) {
         $update_query = "UPDATE tbl_carrinho SET quantidade = $quantidadeCarrinho WHERE id = $idCarrinho";
@@ -50,7 +50,7 @@ if ($exibeDadosCarrinho) {
     $consultaProduto = $conn->prepare("SELECT * FROM tbl_produtos WHERE produto_id = ?");
     $consultaProduto->execute([$idProduto]);
     $exibeDadosProduto = $consultaProduto->fetchAll(PDO::FETCH_ASSOC);
-    $quantidadeEstoque = $exibeDadosProduto[0]['quantidade'];
+    $quantidadeEstoque = $exibeDadosProduto[0]['estoque'];
     
     if ($quantidade <= $quantidadeEstoque) {
         $stmt = $conn->prepare("INSERT INTO tbl_carrinho (usuario_id, produto_id, quantidade) VALUES (?, ?, ?)");
