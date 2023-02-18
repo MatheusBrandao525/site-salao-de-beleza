@@ -398,12 +398,13 @@ require '../adm/consultasSQL/consultaProdutos.php';
       <div class="row justify-content-center bg-appointment mx-0">
         <div class="col-lg-6 py-5">
           <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7)">
-            <h1 class="text-white text-center mb-4">Agende seu Horario</h1>
-            <form>
+            <h1 class="text-white text-center mb-4" id="marcarHorario">Agende seu Horario</h1>
+            <form action="../adm/manipulacoes/manipularHorarios/inserirHorario.php" method="post" enctype="multipart/form-data">
               <div class="form-row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <input
+                      name="nomecliente"
                       type="text"
                       class="form-control bg-transparent p-4"
                       placeholder="Seu Nome"
@@ -414,6 +415,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
                 <div class="col-sm-6">
                   <div class="form-group">
                     <input
+                      name="emailcliente"
                       type="email"
                       class="form-control bg-transparent p-4"
                       placeholder="Seu Email"
@@ -427,9 +429,9 @@ require '../adm/consultasSQL/consultaProdutos.php';
                   <div class="form-group">
                     <div class="date" id="date" data-target-input="nearest">
                       <input
-                        type="text"
+                        name="diaservico"
+                        type="date"
                         class="form-control bg-transparent p-4 datetimepicker-input"
-                        placeholder="Selecione o dia"
                         data-target="#date"
                         data-toggle="datetimepicker"
                       />
@@ -440,6 +442,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
                   <div class="form-group">
                     <div class="time" id="time" data-target-input="nearest">
                       <input
+                        name="horaservico"
                         type="text"
                         class="form-control bg-transparent p-4 datetimepicker-input"
                         placeholder="Selecione a Hora"
@@ -454,6 +457,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
                 <div class="col-sm-6">
                   <div class="form-group">
                     <select
+                      name="selecionarservico"
                       class="custom-select bg-transparent px-4"
                       style="height: 47px"
                     >
@@ -474,6 +478,11 @@ require '../adm/consultasSQL/consultaProdutos.php';
                   </button>
                 </div>
               </div>
+              <?php if (isset($_GET['mensagem'])) { ?>
+               <div id='mensagem' class='col-sm-12 text-center'><?php echo $_GET['mensagem'];?></div>
+              <?php }else { ?>
+                <div id='mensagem' class='col-sm-12 text-center'></div>
+              <?php } ?>
             </form>
           </div>
         </div>
