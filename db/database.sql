@@ -80,3 +80,15 @@ CREATE TABLE tbl_carrinho (
   FOREIGN KEY (usuario_id) REFERENCES tbl_cliente(usuario_id),
   FOREIGN KEY (produto_id) REFERENCES tbl_produtos(produto_id)
 );
+
+
+
+CREATE TABLE HorarioSalao (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    dia DATE NOT NULL,
+    hora TIME NOT NULL,
+    tipoServico VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+);
