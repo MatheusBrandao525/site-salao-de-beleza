@@ -188,7 +188,13 @@ require '../../../adm/consultasSQL/consultaProdutosCarrinho.php';
                                 </div>
                             </td>
                             <td class="align-middle">R$ <?php echo $valorTotal;?></td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+
+                              <td class="align-middle">
+                                <a href="../../../adm/manipulacoes/manipularCarrinho/deletarDoCarrinho.php?idProduto=<?php echo $carrinho['produto_id'];?>&&idUsuario=<?php echo $idUser;?>">  
+                                  <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
+                                </a>
+                              </td>
+                            
                           </tr>
                       <?php } ?>
                     </tbody>
