@@ -48,12 +48,14 @@
         </div>
         <div class="col-lg-6 text-right">
           <div class="d-inline-flex align-items-center">
+          <a class="text-primary px-2" href="../app/pages/login/login.php">
+              <i class="fas fa-user-circle"></i>
+              <span>Login</span>
+            </a>
             <a class="text-primary px-2" href="">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a class="text-primary px-2" href="">
-              <i class="fab fa-twitter"></i>
-            </a>
+
             <a class="text-primary px-2" href="">
               <i class="fab fa-linkedin-in"></i>
             </a>
@@ -129,12 +131,13 @@
         <div class="col-lg-6 py-5" id="agendarhorario">
           <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7)">
             <h1 class="text-white text-center mb-4">Faça login</h1>
-            <form>
+            <form action="../../../adm/manipulacoes/validarUser/validarusuario.php" method="post" enctype="multipart/form-data">
               <div class="form-row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <input
                       type="text"
+                      name="loginNome"
                       class="form-control bg-transparent p-4"
                       placeholder="Seu Nome"
                       required="required"
@@ -145,6 +148,7 @@
                   <div class="form-group">
                     <input
                       type="text"
+                      name="loginSobrenome"
                       class="form-control bg-transparent p-4"
                       placeholder="seu Sobrenome"
                       required="required"
@@ -158,6 +162,7 @@
                   <div class="form-group">
                     <input
                       type="email"
+                      name="loginEmail"
                       class="form-control bg-transparent p-4"
                       placeholder="seu e-mail"
                       required="required"
@@ -169,6 +174,7 @@
                     <div class="time">
                       <input
                         type="password"
+                        name="loginSenha"
                         class="form-control bg-transparent p-4 "
                         placeholder="Digite sua senha"
                       />

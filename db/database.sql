@@ -27,7 +27,7 @@ CREATE TABLE tbl_produtos (
 
 /* Tabela de clientes */
 CREATE TABLE tbl_cliente (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,
   senha VARCHAR(100) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE tbl_cliente (
   estado VARCHAR(100) NOT NULL,
   cep VARCHAR(10) NOT NULL,
   data_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
+)DEFAULT CHARACTER charset=utf8mb4;
 
 /* Tabela de pedidos */
 CREATE TABLE tbl_pedido (
