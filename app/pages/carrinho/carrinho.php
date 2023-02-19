@@ -161,7 +161,7 @@ require '../../../adm/consultasSQL/consultaProdutosCarrinho.php';
                     </thead>
                     <tbody class="align-middle">
                       <?php foreach ($exibeDadosCarrinho as $carrinho) {  
-                        $quantidade = $carrinho['quantidade']; $preco = $carrinho['preco']; $valorTotal = $quantidade * $preco; $valorTotalCarrinho += $valorTotal; $valorFinal = $valorTotalCarrinho + $valorFrete;
+                        $quantidade = $carrinho['quantidade']; $preco = $carrinho['preco']; $valorTotal = $quantidade * $preco; $valorTotalCarrinho += $valorTotal; $estoque = $carrinho['estoque']; $valorFinal = $valorTotalCarrinho + $valorFrete;
                         ?>
                         <tr>
                             <td class="align-middle"><img src="<?php echo $carrinho['imagem'];?>" alt="" style="width: 50px;"><?php echo $carrinho['nome'];?></td>
@@ -177,9 +177,13 @@ require '../../../adm/consultasSQL/consultaProdutosCarrinho.php';
                                     </div>
                                     <input type="text" class="form-control form-control-sm border-0 text-center" value="<?php echo $carrinho['quantidade'];?>">
                                     <div class="input-group-btn">
+                                      <?php if($quantidade < $estoque) { ?>
+                                      <a href="../../../adm/manipulacoes/manipularCarrinho/aumentarCarrinho.php?idProduto=<?php echo $carrinho['produto_id'];?>&&quantidade=<?php echo $carrinho['quantidade'];?>&&idUsuario=<?php echo $idUser;?>">
                                         <button class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
                                         </button>
+                                      </a>
+                                      <?php } ?>
                                     </div>
                                 </div>
                             </td>
