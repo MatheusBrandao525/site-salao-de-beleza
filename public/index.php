@@ -4,6 +4,7 @@ require '../adm/config/conexao.php';
 
 require '../adm/consultasSQL/consultaProdutos.php';
 
+require '../adm/consultasSQL/consultaUsuarios.php';
 
 ?>
 
@@ -57,12 +58,17 @@ require '../adm/consultasSQL/consultaProdutos.php';
         </div>
         <div class="col-lg-6 text-right">
           <div class="d-inline-flex align-items-center">
+          <a class="text-primary px-2" href="../app/pages/login/login.php">
+              <i class="fas fa-user-circle"></i>
+              <span><?php if(isset($nomeUsuarioLogado)){
+                 echo $nomeUsuarioLogado;
+                 
+              }else{ echo 'Fazer login'; } ?></span>
+            </a>
             <a class="text-primary px-2" href="">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a class="text-primary px-2" href="">
-              <i class="fab fa-twitter"></i>
-            </a>
+
             <a class="text-primary px-2" href="">
               <i class="fab fa-linkedin-in"></i>
             </a>
@@ -160,12 +166,6 @@ require '../adm/consultasSQL/consultaProdutos.php';
               class="carousel-caption d-flex flex-column align-items-center justify-content-center"
             >
               <div class="p-3" style="max-width: 900px">
-                <!--                 <h6
-                  class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
-                  style="letter-spacing: 3px"
-                >
-                  Spa & Beauty Center
-                </h6> -->
                 <h3 class="display-3 text-capitalize text-white mb-3">Unhas</h3>
                 <p class="mx-md-5 px-5">
                   Lorem rebum magna dolore amet lorem eirmod magna erat diam
@@ -173,7 +173,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
                 </p>
                 <a
                   class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
-                  href="#"
+                  href="../app/pages/horarios/appointment.php#agendarhorario"
                   >Agendar Horario</a
                 >
               </div>
@@ -192,12 +192,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
               class="carousel-caption d-flex flex-column align-items-center justify-content-center"
             >
               <div class="p-3" style="max-width: 900px">
-                <!--                 <h6
-                  class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
-                  style="letter-spacing: 3px"
-                >
-                  Spa & Beauty Center
-                </h6> -->
+
                 <h3 class="display-3 text-capitalize text-white mb-3">
                   Cabelo
                 </h3>
@@ -207,7 +202,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
                 </p>
                 <a
                   class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
-                  href="#"
+                  href="../app/pages/horarios/appointment.php#agendarhorario"
                   >Agendar Horario</a
                 >
               </div>
@@ -241,7 +236,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
                 </p>
                 <a
                   class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
-                  href="#"
+                  href="../app/pages/horarios/appointment.php#agendarhorario"
                   >Agendar Horario</a
                 >
               </div>
@@ -321,7 +316,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
               duo sit ipsum
             </p>
             <div class="w-100 bg-white text-center p-4">
-              <a class="btn btn-primary" href="">Agendar Horario</a>
+              <a class="btn btn-primary" href="../app/pages/horarios/appointment.php#agendarhorario">Agendar Horario</a>
             </div>
           </div>
         </div>
@@ -334,7 +329,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
               duo sit ipsum
             </p>
             <div class="w-100 bg-white text-center p-4">
-              <a class="btn btn-primary" href="">Agendar Horario</a>
+              <a class="btn btn-primary" href="../app/pages/horarios/appointment.php#agendarhorario">Agendar Horario</a>
             </div>
           </div>
         </div>
@@ -349,7 +344,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
               duo sit ipsum
             </p>
             <div class="w-100 bg-white text-center p-4">
-              <a class="btn btn-primary" href="">Agendar Horario</a>
+              <a class="btn btn-primary" href="../app/pages/horarios/appointment.php#agendarhorario">Agendar Horario</a>
             </div>
           </div>
         </div>
@@ -362,7 +357,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
               duo sit ipsum
             </p>
             <div class="w-100 bg-white text-center p-4">
-              <a class="btn btn-primary" href="">Agendar Horario</a>
+              <a class="btn btn-primary" href="../app/pages/horarios/appointment.php#agendarhorario">Agendar Horario</a>
             </div>
           </div>
         </div>
@@ -377,7 +372,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
               duo sit ipsum
             </p>
             <div class="w-100 bg-white text-center p-4">
-              <a class="btn btn-primary" href="">Agendar Horario</a>
+              <a class="btn btn-primary" href="../app/pages/horarios/appointment.php#agendarhorario">Agendar Horario</a>
             </div>
           </div>
         </div>
@@ -390,7 +385,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
               duo sit ipsum
             </p>
             <div class="w-100 bg-white text-center p-4">
-              <a class="btn btn-primary" href="">Agendar Horario</a>
+              <a class="btn btn-primary" href="../app/pages/horarios/appointment.php#agendarhorario">Agendar Horario</a>
             </div>
           </div>
         </div>
@@ -710,7 +705,7 @@ require '../adm/consultasSQL/consultaProdutos.php';
                 <div class="position-relative text-center">
                   <div class="team-text bg-primary text-white">
                     <h5 class="text-white text-uppercase"><?php echo $produto['nome'];?></h5>
-                    <p class="m-0"><?php echo number_format($produto['preco'],2,',','.');?></p>
+                    <p class="m-0">R$ <?php echo number_format($produto['preco'],2,',','.');?></p>
                   </div>
                   <div class="team-social bg-dark text-center">
                     <button type="submit" class="btn btn-outline-primary btn-square mr-2" href="#"
