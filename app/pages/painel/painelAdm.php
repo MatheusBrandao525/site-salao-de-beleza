@@ -1,20 +1,17 @@
-<?php
-require '../../../adm/config/conexao.php';
-
-require '../../../adm/consultasSQL/consultaUsuarios.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel Administrativo</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Manicure</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
 
-  <!-- Adiciona o CSS do Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <!-- Favicon -->
+    <link href="../public/assets/img/favicon.ico" rel="icon" />
 
-      <!-- Google Web Fonts -->
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -26,14 +23,22 @@ require '../../../adm/consultasSQL/consultaUsuarios.php';
       rel="stylesheet"
     />
 
+    <!-- Libraries Stylesheet -->
+    <link href="../public/assets/lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="../public/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link
+      href="../public/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Adiciona o nosso arquivo CSS personalizado -->
-  <link rel="stylesheet" href="../../../public/assets/css/style.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-      <!-- Topbar Start -->
-      <div class="container-fluid bg-light d-none d-lg-block">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../../public/assets/css/style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light d-none d-lg-block">
       <div class="row py-2 px-lg-5">
         <div class="col-lg-6 text-left mb-2 mb-lg-0">
           <div class="d-inline-flex align-items-center">
@@ -45,10 +50,15 @@ require '../../../adm/consultasSQL/consultaUsuarios.php';
         <div class="col-lg-6 text-right">
           <div class="d-inline-flex align-items-center">
           <?php if(isset($nomeUsuarioLogado)){ ?>
+          <?php if($nomeUsuarioLogado == 'ADMIM') { ?>
           <a class="text-primary px-2" href="../app/pages/painel/painelAdm.php">
+          <?php } else { ?> 
+            <a class="text-primary px-2" href="../app/pages/perfil/perfil.php">
+          <?php } ?>
               <i class="fas fa-user-circle"></i>
               <span><?php echo $nomeUsuarioLogado;?></span>
           </a>
+
         <?php }else{ ?> 
           <a class="text-primary px-2" href="../app/pages/login/login.php">
               <i class="fas fa-user-circle"></i>
@@ -125,47 +135,50 @@ require '../../../adm/consultasSQL/consultaUsuarios.php';
       </nav>
     </div>
     <!-- Navbar End -->
-
-      <!-- Cabeçalho -->
-  <header class="bg-primary text-light">
-    <h1 class="h3 my-2">Painel Administrativo</h1>
-  </header>
-
-  <main class="container my-4">
-  <div class="row justify-content-around">
-    <!-- Gerenciamento de produtos -->
-    <section class="col-sm-4 my-4">
-      <h4 class="h4admpanel">Gerenciamento de Produtos</h4>
-      <div class="list-group d-flex flex-column align-items-start">
-        <button class="list-group-item list-group-item-action">Cadastrar Produto</button>
-        <button class="list-group-item list-group-item-action">Alterar Produto</button>
-        <button class="list-group-item list-group-item-action">Remover Produto</button>
+    <nav>
+      <ul>
+        <li><a href="#" class="actives">Vendas</a></li>
+        <li><a href="#">Relatórios</a></li>
+        <li><a href="#">Estoque</a></li>
+      </ul>
+    </nav>
+    <section>
+      <h2>Vendas</h2>
+      <div class="flex">
+        <div class="box alingCenter">
+            <h3>Total de Vendas</h3>
+            <p class="">100</p>
+        </div>
+        <div class="box alingCenter">
+            <h3>Produto Mais Vendido</h3>
+            <p class="">Produto A</p>
+        </div>
+        <div class="box alingCenter">
+            <h3>Cliente que Mais Comprou</h3>
+            <p class="">Cliente B</p>
+        </div>
       </div>
-      <button class="btn btn-primary mt-3 mx-auto">Cadastrar Produto</button>
     </section>
-
-    <!-- Gerenciamento de clientes -->
-    <section class="col-sm-4 my-4">
-      <h4 class="h4admpanel">Gerenciamento de Clientes</h4>
-      <div class="list-group d-flex flex-column align-items-start">
-        <button class="list-group-item list-group-item-action">Cadastrar Cliente</button>
-        <button class="list-group-item list-group-item-action">Alterar Cliente</button>
-        <button class="list-group-item list-group-item-action">Remover Cliente</button>
+    <section>
+      <h2>Relatórios</h2>
+      <ul class="flex">
+          <li><a href="#">Relatorio de vendas</a></li>
+          <li><a href="#">Movimento por cliente</a></li>
+          <li><a href="#">Produtos sem estoque</a></li>
+          <li><a href="#">Lista de horarios</a></li>
+          <li><a href="#">Relatorio de entregas</a></li>
+        </ul>
+    </section>
+    <section>
+      <h2>Estoque</h2>
+      <div class="box">
+        <h3>Gerenciar Estoque</h3>
+        <ul class="flex">
+          <li><a href="#">Adicionar Produto</a></li>
+          <li><a href="#">Editar Produto</a></li>
+          <li><a href="#">Remover Produto</a></li>
+        </ul>
       </div>
-      <button class="btn btn-primary mt-3 mx-auto">Cadastrar Cliente</button>
     </section>
-
-    <!-- Gerenciamento de agendamentos -->
-    <section class="col-sm-4 my-4">
-      <h4 class="h4admpanel">Gerenciamento de Agendamentos</h4>
-      <div class="list-group d-flex flex-column align-items-start">
-        <button class="list-group-item list-group-item-action">Agendamentos Pendentes</button>
-        <button class="list-group-item list-group-item-action">Agendamentos Concluídos</button>
-        <button class="list-group-item list-group-item-action">Alterar Agendamento</button>
-        <button class="list-group-item list-group-item-action">Remover Agendamento</button>
-      </div>
-      <button class="btn btn-primary mt-3 mx-auto">Agendamentos Pendentes</button>
-    </section>
-  </div>
-</main>
-
+  </body>
+</html>

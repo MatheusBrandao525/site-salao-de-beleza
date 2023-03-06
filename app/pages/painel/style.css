@@ -1,128 +1,75 @@
-/* Definição das cores principais */
-:root {
-  --primary-color: #3b49df;
-  --secondary-color: #2a2c39;
-  --light-color: #f9f9f9;
-  --dark-color: #1e1f2f;
-}
-
-/* Estilo básico para todo o documento */
+/* Define estilos para o corpo do documento */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--light-color);
-  color: var(--secondary-color);
 }
 
-/* Estilo para o cabeçalho */
+/* Define estilos para o cabeçalho */
 header {
-  background-color: var(--primary-color);
-  color: var(--light-color);
-  padding: 1rem;
-  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 
-/* Estilo para a navegação */
+/* Define estilos para o título do cabeçalho */
+header h1 {
+  margin: 0;
+}
+
+/* Define estilos para a navegação */
 nav {
-  background-color: var(--secondary-color);
-  color: var(--light-color);
-  padding: 1rem;
+  background-color: #ccc;
+  padding: 10px;
 }
 
-nav ul {
-  list-style-type: none;
+/* Define estilos para a lista de navegação */
+ul li {
+  list-style-type: none !important;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
+/* Define estilos para cada item da lista de navegação */
 nav li {
-  margin: 0 1rem;
+  display: inline-block;
+  margin-right: 10px;
 }
 
+/* Define estilos para cada link da lista de navegação */
 nav a {
-  color: var(--light-color);
+  color: #333;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  transition: all 0.3s ease;
-}
-/* 
-nav a:hover {
-  background-color: var(--primary-color);
+  padding: 5px;
+  border-radius: 5px;
 }
 
-nav a.active {
-  background-color: var(--primary-color);
-} */
-
-/* Estilo para o conteúdo principal */
-main {
-  padding: 2rem;
+/* Define estilos para cada link da lista de navegação quando estiver ativo */
+nav a.actives {
+  background-color: #333;
+  color: #fff;
 }
 
-main h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--dark-color);
+/* Define estilos para as seções de conteúdo */
+section {
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #999;
 }
 
-main section {
-  background-color: var(--light-color);
-  color: var(--secondary-color);
-  padding: 2rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+/* Define estilos para o título de cada seção de conteúdo */
+section h2 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alingCenter {
   text-align: center;
-}
-
-main ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-main li {
-  margin-bottom: 0.5rem;
-}
-
-main a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-main a:hover {
-  color: var(--secondary-color);
-}
-
-main button.btn-primary {
-  background-color: var(--primary-color);
-  color: var(--light-color);
-  border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-main button.btn-primary:hover {
-  background-color: var(--secondary-color);
-}
-
-.h4admpanel {
-  height: 70px;
-}
-
-.align-items-start {
-  height: 210px;
 }
